@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
+import MoltIDSymbol from '../assets/images/moltid-symbol.png';
+
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -23,6 +25,23 @@ const Header = () => {
             </span>
             <p className="tagline">AI AGENT IDENTITY</p>
           </div>
+{/*           
+          <div className="logo">
+            <img
+            src={MoltIDSymbol}
+            alt="MoltID symbol"
+            className="logo-symbol"
+            />
+
+            <div className="logo-text-wrapper">
+                <span className="logo-text">
+                <span className="molt">Molt</span>
+                <span className="id">ID</span>
+                </span>
+                <p className="tagline">AI AGENT IDENTITY</p>
+            </div>
+          </div> */}
+
 
           {/* Desktop Navigation */}
           <nav className="nav-desktop">
