@@ -74,8 +74,9 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="text-center pt-8 border-t border-zinc-800 text-gray-500 text-sm">
+        <div className="flex flex-col sm:flex-row sm:justify-between items-center gap-6 sm:gap-8 pt-8 border-t border-zinc-800 text-gray-500 text-sm">
           <p>&copy; 2026 MoltID. All rights reserved.🦀</p>
+          <p>Data powered by <a href="https://dexscreener.com" target="_blank" rel="noopener noreferrer" className="text-orange-500 hover:text-orange-400 transition-colors">DexScreener</a></p>
         </div>
       </div>
     </footer>
