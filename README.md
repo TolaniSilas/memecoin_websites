@@ -1,4 +1,4 @@
-# $MoltID Agents - A Memecoin Token Website
+# $MoltID AI Agents - A Memecoin Token Website
 
 This repository hosts a memecoin token website that provides a comprehensive overview of the project's ticker, including its narrative, and its significance.
 
