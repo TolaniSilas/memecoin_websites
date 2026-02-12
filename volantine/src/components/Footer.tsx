@@ -19,7 +19,8 @@ export default function Footer() {
             </h3>
             <p className="text-gray-400 leading-relaxed">
               The memecoin for lovers & pumpers.
-              Renounced ownership. Eternal commitment.
+              The first luxury meme protocol on Solana.
+              "Love is the only candle that doesn't wick."
             </p>
           </div>
 

@@ -26,7 +26,7 @@ export default function Tokenomics() {
 
   return (
     <section className="py-20 bg-[#0f0f1a]">
-      <h2 className="text-4xl font-bold text-center text-pink-500 mb-12">
+      <h2 className="text-2xl font-bold text-center text-pink-500 mb-12">
         Pure On-Chain Love
       </h2>
 

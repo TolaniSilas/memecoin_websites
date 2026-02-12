@@ -1,7 +1,7 @@
 export default function About() {
   return (
     <section className="py-20 px-6 max-w-5xl mx-auto text-center">
-      <h2 className="text-4xl font-bold mb-6 text-pink-500">
+      <h2 className="text-2xl font-bold mb-6 text-pink-500">
         The Love Story
       </h2>
 

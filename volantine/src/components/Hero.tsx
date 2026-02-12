@@ -17,9 +17,6 @@ export default function Hero() {
     }, 1500)
   }
 
-  const truncated =
-    CONTRACT.slice(0, 6) + "..." + CONTRACT.slice(-4)
-
   const handleCopy = async () => {
     await navigator.clipboard.writeText(CONTRACT)
     setCopied(true)
@@ -48,11 +45,25 @@ export default function Hero() {
         )}
 
         {!isHappy ? (
-          <video autoPlay loop muted playsInline className="w-full">
+          <video
+            key="cry"
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full"
+          >
             <source src="/videos/val_crying.mp4" type="video/mp4" />
           </video>
         ) : (
-          <video autoPlay loop muted playsInline className="w-full">
+          <video
+            key="happy"
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full"
+          >
             <source src="/videos/val_excited.mp4" type="video/mp4" />
           </video>
         )}
@@ -77,17 +88,24 @@ export default function Hero() {
         </p>
 
         {/* Address Box */}
-        <div className="bg-[#111122] border border-pink-500/20 rounded-xl px-4 py-3 mb-6">
+        <div className="bg-[#111122] border border-pink-500/20 rounded-xl px-4 py-3 mb-6 w-full">
 
-          {/* Mobile */}
-          <code className="block text-pink-300 text-sm md:hidden break-all">
-            {truncated}
-          </code>
-
-          {/* Desktop */}
-          <code className="hidden md:block text-pink-300 text-sm break-all">
+          <code
+            className="
+              block
+              text-pink-300
+              text-sm
+              w-full
+              overflow-hidden
+              whitespace-nowrap
+              text-ellipsis
+              md:whitespace-normal
+              md:overflow-visible
+            "
+          >
             {CONTRACT}
           </code>
+
         </div>
 
         {/* Copy Button */}
@@ -104,7 +122,7 @@ export default function Hero() {
 
         {copied && (
           <div className="mt-3 text-xs text-pink-400">
-            Copied to clipboard
+            Copied to clipboard!🩷
           </div>
         )}
       </div>
@@ -128,6 +146,7 @@ export default function Hero() {
           Trade on GMGN
         </a>
       </div>
+
     </section>
   )
 }
