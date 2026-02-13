@@ -73,7 +73,7 @@ export default function Stats() {
   }, [])
 
   return (
-    <section id="stats" className="py-24 bg-[#0b0b14] text-white overflow-hidden">
+    <section id="stats" className="py-12 bg-[#0b0b14] text-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row gap-12 items-start">
         
         {/* DexScreener Embed */}
