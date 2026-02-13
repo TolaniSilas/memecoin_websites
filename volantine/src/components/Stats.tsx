@@ -1,22 +1,26 @@
 import { useEffect, useState } from "react"
 import { Activity, Globe, Droplet, BarChart3 } from "lucide-react"
 
-// Solana token contract address
+// solana token contract address.
 const CONTRACT = "5fRPUQKVZEYUe66QT9UCmeGPcA2ijsRNAvCwbuZSpump"
 
+
 export default function Stats() {
-  // State variables for live stats
+
+  // State variables for live stats.
   const [price, setPrice] = useState("---")
   const [change, setChange] = useState("0.00%")
   const [marketCap, setMarketCap] = useState("---")
   const [liquidity, setLiquidity] = useState("---")
   const [volume, setVolume] = useState("---")
-  const [error, setError] = useState(false) // track API error
+  const [error, setError] = useState(false) // track api error.
 
   useEffect(() => {
+    
     /**
-     * Fetch live stats from DexScreener API
+ *  fetch live stats from dexScreener api.
      */
+
     const fetchStats = async () => {
       try {
         const res = await fetch(
@@ -52,13 +56,13 @@ export default function Stats() {
               ? `$${parseInt(pair.volume.h24).toLocaleString()}`
               : "---"
           )
-          setError(false) // reset error state on success
+          setError(false) // reset error state on success.
         }
       } catch (err) {
         console.error("Error fetching DexScreener stats:", err)
         setError(true)
 
-        // Fallback UI values
+        // fallback UI values.
         setPrice("N/A")
         setChange("N/A")
         setMarketCap("N/A")
@@ -76,7 +80,7 @@ export default function Stats() {
     <section id="stats" className="py-12 bg-[#0b0b14] text-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row gap-12 items-start">
         
-        {/* DexScreener Embed */}
+        {/* dexScreener embed. */}
         <div className="w-full lg:w-2/3">
           <div className="rounded-3xl overflow-hidden border border-white/10 h-[600px] w-full">
             <iframe
@@ -88,9 +92,10 @@ export default function Stats() {
           </div>
         </div>
 
-        {/* Stats Boxes */}
+        {/* stats boxes. */}
         <div className="w-full lg:w-1/3 flex flex-col gap-6">
-          {/* Live Price */}
+
+          {/* live price. */}
           <div
             className={`glass p-8 rounded-3xl border-l-4 border-pink-500 relative overflow-hidden group bg-[#111122]/80 ${
               error ? "opacity-70" : ""
@@ -118,7 +123,7 @@ export default function Stats() {
             )}
           </div>
 
-          {/* Market Cap, Liquidity, Volume */}
+          {/* market cap, liquidity, and volume. */}
           <div className="grid grid-cols-1 gap-4">
             <div className="glass p-5 rounded-2xl flex justify-between items-center border border-white/5 hover:border-pink-500/30 transition-all">
               <div>

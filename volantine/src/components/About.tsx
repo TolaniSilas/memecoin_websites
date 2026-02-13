@@ -1,16 +1,16 @@
 export default function About() {
   return (
-    <section className="py-24 px-6 max-w-7xl mx-auto">
+    <section id="about" className="py-24 px-6 max-w-7xl mx-auto">
       <div className="flex flex-col-reverse lg:flex-row items-center gap-12">
         
-        {/* Left Side: Text + Phase Boxes */}
+        {/* text including phase boxes. */}
         <div className="flex-1">
-          {/* Heading */}
+          {/* heading. */}
           <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-pink-500 text-center lg:text-left">
             The <span className="italic">Love</span> Story
           </h2>
 
-          {/* Description */}
+          {/* description. */}
           <div className="text-gray-300 space-y-4 text-base lg:text-lg leading-relaxed max-w-3xl mx-auto lg:mx-0 text-center lg:text-left">
             <p>
               $Valontine mashes Valentine's romance with Solana meme culture.
@@ -21,11 +21,11 @@ export default function About() {
             <p className="text-gray-400">
               Since Love is the only candle that doesn't wick, we launched a love letter to every diamond hand that refused to let go.
             </p>
-          </div>
+          </div> 
 
-          {/* Phase Boxes */}
+          {/* phase boexs. */}
           <div className="mt-10 flex flex-col lg:flex-row gap-6 justify-center lg:justify-start">
-            {/* Box 1 */}
+            {/* phase box 1. */}
             <div className="flex-1 bg-[#111122] border border-pink-500 rounded-2xl p-6 text-left shadow-lg hover:shadow-pink-500/30 transition-all">
               <h3 className="text-pink-500 font-semibold mb-2">Initial Phase: The Infatuation</h3>
               <p className="text-gray-300 text-sm lg:text-base">
@@ -33,7 +33,7 @@ export default function About() {
               </p>
             </div>
 
-            {/* Box 2 */}
+            {/* phase box 2. */}
             <div className="flex-1 bg-[#111122] border border-pink-500 rounded-2xl p-6 text-left shadow-lg hover:shadow-pink-500/30 transition-all">
               <h3 className="text-pink-500 font-semibold mb-2">Ultimate Phase: The Commitment</h3>
               <p className="text-gray-300 text-sm lg:text-base">
@@ -43,7 +43,7 @@ export default function About() {
           </div>
         </div>
 
-        {/* Right Side: Image */}
+        {/* image box. */}
         <div className="flex-1 w-full max-w-lg mx-auto lg:mx-0">
           <img
             src="/valontine_image.png"

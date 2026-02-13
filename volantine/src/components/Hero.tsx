@@ -1,8 +1,9 @@
 import { useState } from "react"
 import { Gift, Copy, Rocket, Check } from "lucide-react"
 
-const CONTRACT =
-  "5fRPUQKVZEYUe66QT9UCmeGPcA2ijsRNAvCwbuZSpump"
+
+// solana token contract address.
+const CONTRACT = "5fRPUQKVZEYUe66QT9UCmeGPcA2ijsRNAvCwbuZSpump"
 
 export default function Hero() {
   const [isHappy, setIsHappy] = useState(false)
@@ -26,7 +27,7 @@ export default function Hero() {
   return (
     <section className="min-h-screen pt-32 md:pt-36 flex flex-col items-center justify-center px-6 text-center bg-gradient-to-b from-[#0b0b14] via-[#140a1f] to-black">
 
-      {/* Title */}
+      {/* title. */}
       <h1 className="text-5xl md:text-7xl font-extrabold bg-gradient-to-r from-pink-500 via-fuchsia-500 to-purple-500 bg-clip-text text-transparent drop-shadow-lg">
         $VALONTINE
       </h1>
@@ -35,7 +36,7 @@ export default function Hero() {
         Where Love Meets Moonshots on Solana
       </p>
 
-      {/* Video */}
+      {/* video. */}
       <div className="relative mt-10 w-full max-w-xl rounded-2xl overflow-hidden border border-pink-500/30 shadow-2xl shadow-pink-500/20">
 
         {showGift && (
@@ -69,7 +70,7 @@ export default function Hero() {
         )}
       </div>
 
-      {/* Gift Button */}
+      {/* gift button. */}
       {!isHappy && (
         <button
           onClick={handleGift}
@@ -80,14 +81,14 @@ export default function Hero() {
         </button>
       )}
 
-      {/* Contract Box */}
+      {/* contract box. */}
       <div className="mt-10 w-full max-w-xl border-2 border-pink-500/60 rounded-3xl p-6 md:p-8 bg-[#0f0f1a] shadow-[0_0_40px_rgba(236,72,153,0.15)] text-center">
 
         <p className="text-sm tracking-widest text-pink-400 mb-4">
           CA
         </p>
 
-        {/* Address Box */}
+        {/* address box. */}
         <div className="bg-[#111122] border border-pink-500/20 rounded-xl px-4 py-3 mb-6 w-full">
 
           <code
@@ -108,7 +109,7 @@ export default function Hero() {
 
         </div>
 
-        {/* Copy Button */}
+        {/* copy button. */}
         <button
           onClick={handleCopy}
           className="mx-auto flex items-center justify-center p-3 rounded-xl border border-pink-500/40 hover:bg-pink-500/10 transition"
@@ -127,7 +128,7 @@ export default function Hero() {
         )}
       </div>
 
-      {/* CTA */}
+      {/* cta. */}
       <div className="flex flex-col md:flex-row gap-4 mt-8">
         <a
           href={`https://pump.fun/${CONTRACT}`}

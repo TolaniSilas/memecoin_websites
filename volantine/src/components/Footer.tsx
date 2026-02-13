@@ -1,7 +1,8 @@
 import { Heart, ExternalLink } from "lucide-react"
 
-const CONTRACT =
-  "5fRPUQKVZEYUe66QT9UCmeGPcA2ijsRNAvCwbuZSpump"
+// solana token contract address.
+const CONTRACT = "5fRPUQKVZEYUe66QT9UCmeGPcA2ijsRNAvCwbuZSpump"
+
 
 export default function Footer() {
   return (
@@ -10,7 +11,7 @@ export default function Footer() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
 
-          {/* Brand */}
+          {/* brand. */}
           <div>
             <h3 className="text-2xl font-extrabold mb-4">
               <span className="bg-gradient-to-r from-pink-500 to-fuchsia-500 bg-clip-text text-transparent">
@@ -18,13 +19,15 @@ export default function Footer() {
               </span>
             </h3>
             <p className="text-gray-400 leading-relaxed">
-              The memecoin for lovers & pumpers.
+              The memecoin for lovers & pumpers. 
               The first luxury meme protocol on Solana.
-              "Love is the only candle that doesn't wick."
+            </p>
+            <p className="italic bg-gradient-to-r from-pink-500 to-fuchsia-500 bg-clip-text text-transparent">
+              Love is the only candle that doesn't wick.
             </p>
           </div>
 
-          {/* Navigation */}
+          {/* navigation. */}
           <div>
             <h4 className="text-white font-bold mb-4">Navigate</h4>
             <ul className="space-y-3">
@@ -38,6 +41,14 @@ export default function Footer() {
               </li>
               <li>
                 <a
+                  href="#stats"
+                  className="text-gray-400 hover:text-pink-500 transition"
+                >
+                  Live Stats
+                </a>
+              </li>
+              <li>
+                <a
                   href="#tokenomics"
                   className="text-gray-400 hover:text-pink-500 transition"
                 >
@@ -47,7 +58,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Trade */}
+          {/* trade. */}
           <div>
             <h4 className="text-white font-bold mb-4">Trade</h4>
             <ul className="space-y-3">
@@ -85,7 +96,7 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom */}
+        {/* bottom. */}
         <div className="pt-8 border-t border-pink-500/10 text-gray-500 text-sm flex flex-col md:flex-row justify-between items-center gap-4">
           <p>
             © 2026 $VALONTINE. All rights reserved.

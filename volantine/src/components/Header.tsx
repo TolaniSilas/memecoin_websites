@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
-import { Heart, Menu } from "lucide-react"
+import { Heart, X } from "lucide-react"
 
+
+// solana token contract address.
 const CONTRACT = "5fRPUQKVZEYUe66QT9UCmeGPcA2ijsRNAvCwbuZSpump"
 
 export default function Header() {
@@ -9,21 +11,24 @@ export default function Header() {
   const [activeSection, setActiveSection] = useState("")
   const [scrolled, setScrolled] = useState(false)
 
+  // improved scroll detection for making real-time live stats.
   useEffect(() => {
     const handleScroll = () => {
-      const scrollY = window.scrollY
-      setScrolled(scrollY > 20)
+      setScrolled(window.scrollY > 20)
 
-      const about = document.getElementById("about")
-      const tokenomics = document.getElementById("tokenomics")
+      const sections = ["about", "stats", "tokenomics"]
 
-      if (tokenomics && scrollY >= tokenomics.offsetTop - 100) {
-        setActiveSection("tokenomics")
-      } else if (about && scrollY >= about.offsetTop - 100) {
-        setActiveSection("about")
-      } else {
-        setActiveSection("")
-      }
+      sections.forEach((id) => {
+        const el = document.getElementById(id)
+        if (el) {
+          const rect = el.getBoundingClientRect()
+
+          // section is considered active when middle of viewport touches it.
+          if (rect.top <= 150 && rect.bottom >= 150) {
+            setActiveSection(id)
+          }
+        }
+      })
     }
 
     window.addEventListener("scroll", handleScroll)
@@ -35,6 +40,7 @@ export default function Header() {
     if (el) {
       el.scrollIntoView({ behavior: "smooth" })
       setMenuOpen(false)
+      setActiveSection(id)
     }
   }
 
@@ -47,91 +53,109 @@ export default function Header() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6">
-        <div className="flex justify-between items-center py-4">
+        <div className="flex items-center justify-between py-4">
 
-          {/* Logo */}
+          {/* logo. */}
           <div className="flex items-center gap-2">
-            <Heart className="text-pink-500" size={28} />
-            <div className="flex flex-col leading-tight">
-              <span className="text-2xl font-extrabold">
-                <span className="bg-gradient-to-r from-pink-500 to-fuchsia-500 bg-clip-text text-transparent">
-                  VALON
-                </span>
-                <span className="text-white">TINE</span>
+            <Heart className="text-pink-500" size={26} />
+            <span className="text-2xl font-extrabold">
+              <span className="bg-gradient-to-r from-pink-500 to-fuchsia-500 bg-clip-text text-transparent">
+                VALON
               </span>
-              <span className="text-[0.65rem] text-gray-500 uppercase tracking-widest">
-                Pure On-Chain Love
-              </span>
-            </div>
+              <span className="text-white">TINE</span>
+            </span>
           </div>
 
-          {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-8">
-            <button
-              onClick={() => scrollToSection("about")}
-              className={`font-medium transition-colors ${
-                activeSection === "about"
-                  ? "text-pink-500"
-                  : "text-gray-400 hover:text-pink-400"
-              }`}
-            >
-              About
-            </button>
+          {/* desktop navigation. */}
+          <nav className="hidden md:flex items-center gap-10 absolute left-1/2 transform -translate-x-1/2">
+            {["about", "stats", "tokenomics"].map((item) => (
+              <button
+                key={item}
+                onClick={() => scrollToSection(item)}
+                className={`text-sm font-medium transition-colors ${
+                  activeSection === item
+                    ? "text-pink-500"
+                    : "text-gray-400 hover:text-pink-400"
+                }`}
+              >
+                {item === "stats"
+                  ? "Live Stats"
+                  : item.charAt(0).toUpperCase() + item.slice(1)}
+              </button>
+            ))}
+          </nav>
 
-            <button
-              onClick={() => scrollToSection("tokenomics")}
-              className={`font-medium transition-colors ${
-                activeSection === "tokenomics"
-                  ? "text-pink-500"
-                  : "text-gray-400 hover:text-pink-400"
-              }`}
-            >
-              Tokenomics
-            </button>
-
+          {/* buy button. */}
+          <div className="hidden md:block">
             <a
               href={`https://pump.fun/${CONTRACT}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-gradient-to-r from-pink-600 to-purple-600 hover:opacity-90 text-white px-6 py-2.5 rounded-xl font-semibold transition-all hover:-translate-y-0.5 shadow-lg shadow-pink-500/30"
+              className="bg-gradient-to-r from-pink-600 to-purple-600 text-white px-6 py-2.5 rounded-xl font-semibold transition-all hover:-translate-y-0.5 shadow-lg shadow-pink-500/30"
             >
               Buy Now
             </a>
-          </nav>
+          </div>
 
-          {/* Mobile Button */}
+          {/* hamburger. */}
           <button
             className="md:hidden relative w-10 h-10 flex items-center justify-center"
             onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Menu"
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
           >
-            <Menu className="text-white" />
+            <span
+              className={`absolute h-0.5 w-6 bg-white transition-all duration-300 ${
+                menuOpen ? "rotate-45" : "-translate-y-2"
+              }`}
+            ></span>
+
+            <span
+              className={`absolute h-0.5 w-6 bg-white transition-all duration-300 ${
+                menuOpen ? "opacity-0" : "opacity-100"
+              }`}
+            ></span>
+
+            <span
+              className={`absolute h-0.5 w-6 bg-white transition-all duration-300 ${
+                menuOpen ? "-rotate-45" : "translate-y-2"
+              }`}
+            ></span>
           </button>
         </div>
       </div>
 
-      {/* Mobile Drawer */}
+      {/* mobile drawer. */}
       <motion.div
         initial={{ x: "100%" }}
         animate={{ x: menuOpen ? "0%" : "100%" }}
-        transition={{ type: "spring", stiffness: 260, damping: 25 }}
-        className="md:hidden fixed top-0 right-0 h-screen w-[85%] bg-[#0b0b14]/95 backdrop-blur-xl border-l border-pink-500/20 z-40 p-8"
+        transition={{ type: "spring", stiffness: 300, damping: 30 }}
+        className="md:hidden fixed top-0 right-0 h-screen w-[90%] bg-[#0b0b14]/95 backdrop-blur-xl border-l border-pink-500/20 rounded-l-2xl z-40 p-8"
       >
-        <div className="flex flex-col gap-6 mt-16">
+        {/* close button. */}
+        <button
+          onClick={() => setMenuOpen(false)}
+          className="absolute top-6 right-6 p-2 rounded-full hover:bg-[#111122] transition"
+          aria-label="Close menu"
+        >
+          <X size={26} className="text-gray-300 hover:text-pink-500 transition" />
+        </button>
 
-          <button
-            onClick={() => scrollToSection("about")}
-            className="text-left text-lg text-gray-300 hover:text-pink-500 transition"
-          >
-            About
-          </button>
-
-          <button
-            onClick={() => scrollToSection("tokenomics")}
-            className="text-left text-lg text-gray-300 hover:text-pink-500 transition"
-          >
-            Tokenomics
-          </button>
+        <div className="flex flex-col gap-6 mt-20">
+          {["about", "stats", "tokenomics"].map((item) => (
+            <button
+              key={item}
+              onClick={() => scrollToSection(item)}
+              className={`text-left text-lg font-medium transition-colors py-3 px-4 rounded-lg ${
+                activeSection === item
+                  ? "text-pink-500 bg-[#111122]"
+                  : "text-gray-300 hover:text-pink-500 hover:bg-[#111122]"
+              }`}
+            >
+              {item === "stats"
+                ? "Live Stats"
+                : item.charAt(0).toUpperCase() + item.slice(1)}
+            </button>
+          ))}
 
           <a
             href={`https://pump.fun/${CONTRACT}`}

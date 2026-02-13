@@ -1,6 +1,7 @@
 import { Flame, Crown, Gem, Coins } from "lucide-react"
 
 export default function Tokenomics() {
+
   const features = [
     {
       icon: <Flame className="text-pink-500" size={36} />,
@@ -25,9 +26,9 @@ export default function Tokenomics() {
   ]
 
   return (
-    <section className="py-18 bg-[#0f0f1a]">
+    <section id="tokenomics" className="py-18 bg-[#0f0f1a]">
       
-      {/* Section Title */}
+      {/* section title. */}
       <h2 className="text-3xl lg:text-4xl font-bold text-center text-pink-500 italic mb-16">
         Pure On-Chain Love
       </h2>
