@@ -32,8 +32,8 @@ export default function Hero() {
         $VALONTINE
       </h1>
 
-      <p className="mt-4 text-lg text-gray-300">
-        Where Love Meets Moonshots on Solana
+      <p className="mt-4 text-lg text-gray-300 italic">
+        Where Love Meets Moonshots on Solana.
       </p>
 
       {/* video. */}

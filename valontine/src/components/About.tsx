@@ -27,7 +27,7 @@ export default function About() {
           <div className="mt-10 flex flex-col lg:flex-row gap-6 justify-center lg:justify-start">
             {/* phase box 1. */}
             <div className="flex-1 bg-[#111122] border border-pink-500 rounded-2xl p-6 text-left shadow-lg hover:shadow-pink-500/30 transition-all">
-              <h3 className="text-pink-500 font-semibold mb-2">Initial Phase: The Infatuation</h3>
+              <h3 className="text-pink-500 font-semibold mb-2 italic">Initial Phase: The Infatuation</h3>
               <p className="text-gray-300 text-sm lg:text-base">
                 When the first 1,000 holders realized this wasn't just another meme - it was a lifestyle.
               </p>
@@ -35,7 +35,7 @@ export default function About() {
 
             {/* phase box 2. */}
             <div className="flex-1 bg-[#111122] border border-pink-500 rounded-2xl p-6 text-left shadow-lg hover:shadow-pink-500/30 transition-all">
-              <h3 className="text-pink-500 font-semibold mb-2">Ultimate Phase: The Commitment</h3>
+              <h3 className="text-pink-500 font-semibold mb-2 italic">Ultimate Phase: The Commitment</h3>
               <p className="text-gray-300 text-sm lg:text-base">
                 Building the largest decentralized heart-shaped ecosystem on Solana.
               </p>
